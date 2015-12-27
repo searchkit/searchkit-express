@@ -1,0 +1,14 @@
+{
+  "name": "elasticsearch-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "elasticsearch": "^10.0.1",
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {}
+}
