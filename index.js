@@ -18,7 +18,7 @@ module.exports = function(config, expressApp){
   expressApp.post("/_search", function(req, res){
     var queryBody = req.body || {}
     promiseResponse(client.search({
-      index:"movies",
+      index:config.index,
       body:queryBody
     }),req, res)
   });
@@ -28,7 +28,7 @@ module.exports = function(config, expressApp){
         return [{}, query]
     }))
     promiseResponse(client.msearch({
-      index:"movies",
+      index:config.index,
       body:queryBody
     }), req, res)
   });
