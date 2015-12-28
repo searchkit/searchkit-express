@@ -1,6 +1,6 @@
 {
-  "name": "elasticsearch-express",
-  "version": "0.1.0",
+  "name": "searchkit-express",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "scripts": {},
