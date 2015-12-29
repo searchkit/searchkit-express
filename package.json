@@ -10,5 +10,10 @@
     "elasticsearch": "^10.0.1",
     "lodash": "^3.10.1"
   },
-  "devDependencies": {}
+  "peerDependencies":{
+    "express": "4.x.x"
+  },
+  "devDependencies": {
+    "express": "4.x.x"
+  }
 }
