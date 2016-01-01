@@ -16,8 +16,7 @@ var app = express()
 //...
 
 SearchkitExpress({
-  host:process.env.ELASTIC_URL || "http://localhost:9200",
-  log: 'debug',
+  host:process.env.ELASTIC_URL || "http://localhost:9200",  
   index:'movies',
   queryProcessor:function(query, req, res){
     //do neccessery permissions, prefilters to query object
@@ -42,8 +41,7 @@ var app = express()
 //...
 
 var searchkitRouter = SearchkitExpress.createRouter({
-  host:process.env.ELASTIC_URL || "http://localhost:9200",
-  log: 'debug',
+  host:process.env.ELASTIC_URL || "http://localhost:9200",  
   index:'movies',
   queryProcessor:function(query, req, res){
     console.log(query)    
@@ -55,4 +53,10 @@ app.use("/movie-search", searchkitRouter)
 then in your Clientside UI code
 ```js
 const searchkit = new SearchkitManager("/movies-search")
+```
+
+#### Debugging
+To enable debugging, enable debugging by setting environment variable when starting your server.
+```sh
+DEBUG=SearchkitExpress node server.js
 ```
