@@ -6,7 +6,7 @@ npm install searchkit-express --save
 ```
 
 ```js
-SearchkitExpress = require("searchkit-express")
+var SearchkitExpress = require("searchkit-express")
 ```
 
 #### Add _search, _msearch endpoints to root url
