@@ -1,4 +1,3 @@
-var elasticsearch = require("elasticsearch")
 var _ = require("lodash")
 var express = require("express")
 var debug = require("debug")("SearchkitExpress")
@@ -16,7 +15,8 @@ var createSearchkitRouter = function(config) {
     return request.post({
       url:fullUrl,
       body:body,
-      json:_.isObject(body)
+      json:_.isObject(body),
+      forever:true
     }).on("response", function(response){
       debug("Finished Elastic Request", fullUrl, response.statusCode)
     }).on("error", function(response){
@@ -26,13 +26,6 @@ var createSearchkitRouter = function(config) {
   router.post("/_search", function(req, res){
     var queryBody = config.queryProcessor(req.body || {}, req, res)
     elasticRequest("/_search", queryBody).pipe(res)
-  });
-
-  router.post("/_msearch", function(req, res){
-    var queryBody = _.flatten(_.map(req.body, function(query){
-        return ['{}', JSON.stringify(config.queryProcessor(query, req, res))]
-    })).join("\n")
-    elasticRequest("/_msearch", queryBody).pipe(res)
   });
 
   return router
