@@ -43,6 +43,7 @@ var app = express()
 var searchkitRouter = SearchkitExpress.createRouter({
   host:process.env.ELASTIC_URL || "http://localhost:9200",  
   index:'movies',
+  maxSockets:500, // defaults to 1000
   queryProcessor:function(query, req, res){
     console.log(query)    
     return query

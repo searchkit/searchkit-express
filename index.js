@@ -6,13 +6,19 @@ var request = require("request")
 var createSearchkitRouter = function(config) {
   var router = express.Router()
   config.queryProcessor = config.queryProcessor || _.identity
+  var requestClient = request.defaults({
+    pool: {
+      maxSockets: config.maxSockets || 1000
+    }
+  });
+
   var elasticRequest = function(url, body){
     var fullUrl = config.host+ "/" + config.index + url;
     debug("Start Elastic Request", fullUrl)
     if(_.isObject(body)){
       debug("Request body", body)
     }
-    return request.post({
+    return requestClient.post({
       url:fullUrl,
       body:body,
       json:_.isObject(body),
