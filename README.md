@@ -9,7 +9,7 @@ npm install searchkit-express --save
 var SearchkitExpress = require("searchkit-express")
 ```
 
-#### Add _search, _msearch endpoints to root url
+#### Add _search endpoint to root url
 if you just want to create a proxy to the root express url then use the `SearchkitExpress` function directly like this
 ```js
 var app = express()
