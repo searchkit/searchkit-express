@@ -13,6 +13,7 @@ var SearchkitExpress = require("searchkit-express")
 if you just want to create a proxy to the root express url then use the `SearchkitExpress` function directly like this
 ```js
 var app = express()
+app.use(bodyParser.json())
 //...
 
 SearchkitExpress({
@@ -37,6 +38,7 @@ If you wish to get hold of an `express.Router` instance so you can configure the
 
 ```js
 var app = express()
+app.use(bodyParser.json())
 
 //...
 
