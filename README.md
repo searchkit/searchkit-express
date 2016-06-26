@@ -17,7 +17,8 @@ app.use(bodyParser.json())
 //...
 
 SearchkitExpress({
-  host:process.env.ELASTIC_URL || "http://localhost:9200",  
+  // For HTTP basic auth use format: "http://username:password@localhost:9200" in host parameter
+  host:process.env.ELASTIC_URL || "http://localhost:9200", 
   index:'movies',
   queryProcessor:function(query, req, res){
     //do neccessery permissions, prefilters to query object
