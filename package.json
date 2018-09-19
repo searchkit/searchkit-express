@@ -6,6 +6,10 @@
   "scripts": {},
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/searchkit/searchkit-express.git"
+  },
   "dependencies": {
     "debug": "^2.2.0",
     "lodash": "^3.10.1",
