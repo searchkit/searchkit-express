@@ -31,7 +31,7 @@ var createSearchkitRouter = function(config) {
   }
   router.post("/_search", function(req, res){
     var queryBody = config.queryProcessor(req.body || {}, req, res)
-    elasticRequest("/_search", queryBody).pipe(res)
+    elasticRequest("/_search?rest_total_hits_as_int=true", queryBody).pipe(res)
   });
 
   return router
