@@ -2,11 +2,12 @@
 A thin library to create an express to elasticsearch proxy to support the searchkit ui framework
 
 ```sh
-npm install searchkit-express --save
+npm install searchkit-express body-parser --save
 ```
 
 ```js
 var SearchkitExpress = require("searchkit-express")
+var bodyParser = require('body-parser');
 ```
 
 #### Add _search endpoint to root url
@@ -38,6 +39,8 @@ const searchkit = new SearchkitManager("/")
 If you wish to get hold of an `express.Router` instance so you can configure the suburl and add specific express middleware; use as follows
 
 ```js
+var bodyParser = require('body-parser');
+
 var app = express()
 app.use(bodyParser.json())
 
